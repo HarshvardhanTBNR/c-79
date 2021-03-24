@@ -1,22 +1,29 @@
-name_of_student_array=[];
-function submit(){
-var name_1=document.getElementById("name_of_student_1").value;
-var name_2=document.getElementById("name_of_student_2").value;
-var name_3=document.getElementById("name_of_student_3").value;
-var name_4=document.getElementById("name_of_student_4").value;
-
-name_of_student_array.push(name_1);
-name_of_student_array.push(name_2);
-name_of_student_array.push(name_3);
-name_of_student_array.push(name_4);
-console.log(name_of_student_array);
-document.getElementById("display_name").innerHTML=name_of_student_array;
-document.getElementById("submit_button").style.display="none";
-document.getElementById("sort_button").style.display="inline-block";
+menu_list_array=[
+"Chicken tandoori pizza",
+"Veg Supreme Pizza",
+"Paneer Tikka pizza",
+"Deluxe veggei pizza",
+"veg extravaganza pizza"
+]
+function getmenu(){
+var htmldata;
+htmldata="<ol class='menulist'>";
+menu_list_array.sort();
+for(var i=0;i<menu_list_array.lenght;i++>){
+htmldata=htmldata+'<li>' + menu_list_array[i]+'</li>'
 }
-function sort(){
-name_of_student_array.sort();
-console.log(name_of_student_array);
-document.getElementById("display_name").innerHTML=name_of_student_array;
+htmldata=htmldata+"</ol>"
+document.getElementById("display_menu").innerHTML=htmldata;
 }
-
+function add_item(){
+var htmldata;
+var item=document.getElementById("add_item").value;
+menu_list_array.push(item);
+menu_list_array.sort();
+htmldata="<section class='cards'>"
+for(var i=0;i<menu_list_array.lenght;i++>){
+    htmldata=htmldata+'<div class="card">' + 'img src="images/pizzaImg.png"/' + menu_list_array[i]+'</div>'
+    }
+    htmldata=html="</section>"
+    document.getElementById("diplay_addedmenu").innerHTML=htmldata;
+}
